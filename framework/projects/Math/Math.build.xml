@@ -26,6 +26,8 @@ It defines project-specific properties and targets, and imports the build file
 of the checked-out project version.
 #############################################################################-->
 <project name="D4J-Math">
+    <property name="agent.includes" value="org.apache.commons.math.*" />
+
     <!-- Include existing project build file -->
     <import file="${d4j.workdir}/build.xml"/>
 

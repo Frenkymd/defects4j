@@ -26,6 +26,8 @@ It defines project-specific properties and targets, and imports the build file
 of the checked-out project version.
 #############################################################################-->
 <project name="D4J-Time">
+    <property name="agent.includes" value="org.joda.time.*" />
+
     <!-- Project-specific dependencies -->
     <property name="config.jar" value="${d4j.home}/major/config/config.jar" />
     <property name="jodaconvert.jar" value="${d4j.home}/framework/projects/Time/lib/joda-convert-1.2.jar" />

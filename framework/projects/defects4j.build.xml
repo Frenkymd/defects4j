@@ -28,6 +28,8 @@ project-specific build file ("project_id"/"project_id".build.xml) for the
 "project_id" (Lang, Math, etc.) of the checked-out project version.
 #############################################################################-->
 <project name="Defects4J" basedir="${basedir}">
+    <property name="agent.jar" value="${d4j.home}/framework/lib/agent.jar" />
+    <taskdef name="myjunittask" classname="hu.szte.sed.MyJUnitTask" classpath="${agent.jar}"/>
     <!-- Ensure basedir is properly set -->
     <property name="d4j.workdir" value="${basedir}" />
     <property name="d4j.properties" value="defects4j.build.properties" />
@@ -102,7 +104,7 @@ project-specific build file ("project_id"/"project_id".build.xml) for the
     Run developer-written tests
 -->
     <target name="run.dev.tests" depends="compile.tests,update.all.tests" description="Run unit tests">
-        <junit printsummary="yes" haltonfailure="no" haltonerror="no" fork="no" showOutput="true">
+        <myjunittask printsummary="yes" haltonfailure="no" haltonerror="no" fork="no" showOutput="true">
             <classpath>
                 <!-- Make sure that instrumented classes appear at the beginning of the
                      classpath -->
@@ -118,7 +120,7 @@ project-specific build file ("project_id"/"project_id".build.xml) for the
             <batchtest unless="test.entry.class">
                 <fileset refid="all.manual.tests" />
             </batchtest>
-        </junit>
+        </myjunittask>
         <!-- fail build in case we are running all classes, but there are none in the fileset -->
         <if> <not> <isset property="test.entry.class" /> </not> <then>
             <pathconvert refid="all.manual.tests" property="fileset.notempty" setonempty="false" />
