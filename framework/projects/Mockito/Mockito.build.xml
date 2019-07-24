@@ -1,4 +1,5 @@
 <project name="Mockito" basedir="${basedir}">
+    <property name="agent.includes" value="org.mockito.*" />
 
     <!-- Force build in Java 1.7 for older versions of the project -->
     <property name="build.compiler" value="javac1.7"/>

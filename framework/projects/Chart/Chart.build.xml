@@ -26,6 +26,8 @@ It defines project-specific properties and targets, and imports the build file
 of the checked-out project version.
 #############################################################################-->
 <project name="D4J-Chart">
+    <property name="agent.includes" value="org.jfree.*" />
+
     <!-- Include existing project build file -->
     <import file="${d4j.workdir}/ant/build.xml" />
 

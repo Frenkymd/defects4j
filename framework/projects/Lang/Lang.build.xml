@@ -26,6 +26,8 @@ It defines project-specific properties and targets, and imports the build file
 of the checked-out project version.
 #############################################################################-->
 <project name="D4J-Lang">
+    <property name="agent.includes" value="org.apache.commons.lang.*" />
+    
     <!-- Project-specific dependencies -->
     <property name="easymock.jar" value="${d4j.home}/framework/projects/Lang/lib/easymock.jar"/>
     <property name="commons-io.jar" value="${d4j.home}/framework/projects/Lang/lib/commons-io.jar"/>
