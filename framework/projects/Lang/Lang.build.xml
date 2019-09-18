@@ -26,7 +26,6 @@ It defines project-specific properties and targets, and imports the build file
 of the checked-out project version.
 #############################################################################-->
 <project name="D4J-Lang">
-    <property name="agent.includes" value="org.apache.commons.lang.*" />
     
     <!-- Project-specific dependencies -->
     <property name="easymock.jar" value="${d4j.home}/framework/projects/Lang/lib/easymock.jar"/>
@@ -51,6 +50,8 @@ of the checked-out project version.
     <condition property="test.classes.dir" value="${maven.build.testOutputDir}" else="${build.home}/tests">
         <isset property="maven.build.testOutputDir" />
     </condition>
+
+    <property name="agent.includes" value=".*${classes.dir}.*" />
 
     <!-- List of all developer-written tests that reliably pass on the fixed version -->
     <fileset id="all.manual.tests" dir="${test.home}" excludes="${d4j.tests.exclude}">

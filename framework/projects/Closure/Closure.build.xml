@@ -26,7 +26,6 @@ It defines project-specific properties and targets, and imports the build file
 of the checked-out project version.
 #############################################################################-->
 <project name="D4J-Closure">
-    <property name="agent.includes" value="com.google.javascript.*" />
     
     <!-- Compile with debugging information enabled -->
     <property name="javac.debug" value="true" />
@@ -54,6 +53,8 @@ of the checked-out project version.
     <property name="test.home" value="${testClasses.dir}" />
     <property name="build.home" value="${build.dir}" />
     <property name="test.classes.dir" value="${test.home}" />
+
+    <property name="agent.includes" value=".*${classes.dir}.*" />
 
     <target name="compile.tests" depends="compile-tests" />
 

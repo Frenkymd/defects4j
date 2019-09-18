@@ -26,7 +26,6 @@ It defines project-specific properties and targets, and imports the build file
 of the checked-out project version.
 #############################################################################-->
 <project name="D4J-Math">
-    <property name="agent.includes" value="org.apache.commons.math.*" />
 
     <!-- Include existing project build file -->
     <import file="${d4j.workdir}/build.xml"/>
@@ -35,6 +34,8 @@ of the checked-out project version.
     <property name="build.home" value="${classesdir}/.." />
     <property name="classes.dir" value="${build.home}/classes" />
     <property name="test.classes.dir" value="${build.home}/test-classes" />
+
+    <property name="agent.includes" value=".*${classes.dir}.*" />
 
     <!-- Directory of the test sources, the default is the directory of the
          existing tests -->
