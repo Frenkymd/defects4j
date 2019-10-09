@@ -35,8 +35,6 @@ of the checked-out project version.
     <property name="classes.dir" value="${build.home}/classes" />
     <property name="test.classes.dir" value="${build.home}/test-classes" />
 
-    <property name="agent.includes" value=".*${classes.dir}.*" />
-
     <!-- Directory of the test sources, the default is the directory of the
          existing tests -->
     <property name="d4j.test.dir" value="${test.home}"/>
@@ -79,6 +77,9 @@ of the checked-out project version.
 
     </then> </if>
     <!-- end of fixing ant script -->
+
+    <property name="agent.helper" location="${classes.dir}" />
+    <property name="agent.includes" value=".*${agent.helper}.*" />
 
     <!-- List of all developer-written tests that reliably pass on the fixed version -->
     <fileset id="all.manual.tests" dir="${test.home}" excludes="${d4j.tests.exclude}">
