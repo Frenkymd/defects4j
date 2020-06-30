@@ -28,7 +28,11 @@ project-specific build file ("project_id"/"project_id".build.xml) for the
 "project_id" (Lang, Math, etc.) of the checked-out project version.
 #############################################################################-->
 <project name="Defects4J" basedir="${basedir}">
+    <property environment="env" />
     <property name="agent.jar" value="${d4j.home}/framework/lib/agent.jar" />
+    <condition property="agent.granularity" value="${env.AGENT_GRANULARITY}">
+        <isset property="env.AGENT_GRANULARITY" />
+    </condition>
     <taskdef name="myjunittask" classname="hu.szte.sed.MyJUnitTask" classpath="${agent.jar}"/>
     <!-- Ensure basedir is properly set -->
     <property name="d4j.workdir" value="${basedir}" />
